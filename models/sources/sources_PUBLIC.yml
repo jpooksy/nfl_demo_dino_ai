@@ -6,4 +6,6 @@ sources:
     schema: PUBLIC
     tables:
       - name: PLAYER_STATS_BY_GAME
+      - name:  PLAY_BY_PLAY 
+
       
