@@ -1,4 +1,4 @@
-name: "nfl"
+name: "dino_ai_test"
 version: "1.0.0"
 config-version: 2
 
@@ -16,6 +16,8 @@ clean-targets:
   - "dbt_packages"
 
 models:
-  nfl:
-    example:
+  dino_ai_test:
+    staging:
       +materialized: view
+    marts:
+      +materialized: table
