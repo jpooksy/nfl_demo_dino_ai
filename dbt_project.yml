@@ -2,7 +2,7 @@ name: "dino_ai_test"
 version: "1.0.0"
 config-version: 2
 
-profile: "nfl"
+profile: "dino_ai_test"
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -19,5 +19,9 @@ models:
   dino_ai_test:
     staging:
       +materialized: view
+      +database: PARKER_DEMO
+      +schema: DBT_PARKER
     marts:
       +materialized: table
+      +database: PARKER_DEMO
+      +schema: DBT_PARKER
