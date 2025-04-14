@@ -1,0 +1,39 @@
+version: 2
+
+models:
+  - name: mart_player_analytics
+    description: A comprehensive view of player data including gameplay statistics and transaction information
+    columns:
+      - name: player_id
+        description: Unique identifier for each player
+        tests:
+          - unique
+          - not_null
+      - name: email
+        description: Player's email address
+      - name: username
+        description: Player's chosen username
+      - name: signup_date
+        description: Date when the player signed up
+      - name: country
+        description: Player's country
+      - name: platform
+        description: Gaming platform used by the player
+      - name: last_login_date
+        description: Date of player's last login
+      - name: total_playtime_hours
+        description: Total hours played
+      - name: highest_level_achieved
+        description: Highest level reached by the player
+      - name: games_played
+        description: Total number of games played
+      - name: win_rate
+        description: Player's win rate as a percentage
+      - name: total_spend
+        description: Total amount spent by the player
+      - name: transaction_count
+        description: Total number of transactions made by the player
+      - name: player_segment
+        description: Player value segment based on total spend (High Value > $100, Medium Value > $50, Low Value <= $50)
+      - name: days_since_last_login
+        description: Number of days since the player's last login

@@ -1,0 +1,70 @@
+version: 2
+
+sources:
+  - name: activision_data
+    database: PARKER_DEMO
+    schema: ACTIVISION_DATA
+    tables:
+      - name: players
+        description: Player information including signup details and demographics
+        columns:
+          - name: player_id
+            description: Unique identifier for each player
+            tests:
+              - unique
+              - not_null
+          - name: email
+            description: Player's email address
+          - name: username
+            description: Player's chosen username
+          - name: signup_date
+            description: Date when the player signed up
+          - name: country
+            description: Player's country
+          - name: platform
+            description: Gaming platform used by the player
+
+      - name: gameplay_stats
+        description: Player gameplay statistics and metrics
+        columns:
+          - name: player_id
+            description: Unique identifier for each player
+            tests:
+              - not_null
+              - relationships:
+                  to: source('activision_data', 'players')
+                  field: player_id
+          - name: last_login_date
+            description: Date of player's last login
+          - name: total_playtime_hours
+            description: Total hours played
+          - name: highest_level_achieved
+            description: Highest level reached by the player
+          - name: games_played
+            description: Total number of games played
+          - name: win_rate
+            description: Player's win rate as a percentage
+
+      - name: transactions
+        description: In-game transactions and purchases
+        columns:
+          - name: transaction_id
+            description: Unique identifier for each transaction
+            tests:
+              - unique
+              - not_null
+          - name: player_id
+            description: Player who made the transaction
+            tests:
+              - not_null
+              - relationships:
+                  to: source('activision_data', 'players')
+                  field: player_id
+          - name: transaction_date
+            description: Date of the transaction
+          - name: purchase_amount
+            description: Amount of the purchase
+          - name: item_purchased
+            description: Item or service purchased
+          - name: payment_method
+            description: Method of payment used
