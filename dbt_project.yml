@@ -19,9 +19,5 @@ models:
   dino_ai_test:
     staging:
       +materialized: view
-      +database: PARKER_DEMO
-      +schema: DBT_PARKER
     marts:
       +materialized: table
-      +database: PARKER_DEMO
-      +schema: DBT_PARKER
